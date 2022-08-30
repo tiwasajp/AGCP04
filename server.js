@@ -18,8 +18,8 @@ const RESTAPI_TIMEOUT = 5000;
 
 const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
-//const PORT = 443;
-const PORT = 80;
+const PORT = 443;
+//const PORT = 80;
 
 const SERVER = process.env.SERVER || 'aura.uxportal.jp';
 const WORKDIR = process.env.WORKDIR || '/home/AGCP04';
@@ -32,7 +32,6 @@ app.set("port", process.env.PORT || PORT);
 app.set("view engine", "ejs");
 app.set('trust proxy', true);
 
-/*
 https.createServer({
 	key: fs.readFileSync("/home/share/certificates/private.key"),
 	cert: fs.readFileSync("/home/share/certificates/server.crt"),
@@ -40,12 +39,13 @@ https.createServer({
 	requestCert: true,
 	rejectUnauthorized: false
 }, app).listen(PORT, () => { console.log(`Server listening on port ${PORT}`); });
-*/
 
+/*
 http.createServer(app).listen(PORT,
 	() => {
 		console.log(`Server listening on port ${PORT}`);
 	});
+*/
 
 // GKE health check
 app.get('/', (req, resp) => {
